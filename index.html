@@ -4,7 +4,534 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yassir Travel - Millions of Cheap Flights</title>
-    <link rel="stylesheet" href="css/style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #1a0244;
+            overflow-x: hidden;
+        }
+
+        /* Header Section */
+        .header-gradient {
+            background: linear-gradient(180deg, #240969 0%, #8974ef 58.09%, #ff6eff 81.85%, #ffffff 100%);
+            padding-bottom: 0;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 120px;
+            max-width: 1790px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: white;
+        }
+
+        .nav-center {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: white;
+            font-weight: 600;
+            font-size: 17px;
+            cursor: pointer;
+            padding: 12px 0;
+            border-bottom: 3px solid transparent;
+        }
+
+        .nav-item.active {
+            border-bottom: 3px solid white;
+        }
+
+        .nav-item:not(.active) {
+            opacity: 0.8;
+        }
+
+        .nav-right {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .lang-btn {
+            padding: 10px 16px;
+            border: 1px solid #c4c0d3;
+            background: white;
+            border-radius: 999px;
+            color: #6316db;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #f1f1fe;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: #1a0244;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            max-width: 1310px;
+            margin: 0 auto;
+            padding: 48px 120px 80px;
+        }
+
+        .hero-title {
+            font-size: 48px;
+            font-weight: 700;
+            color: white;
+            text-align: center;
+            margin-bottom: 32px;
+            line-height: 1.3;
+            letter-spacing: -1.44px;
+        }
+
+        .yassir-plus {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 48px;
+        }
+
+        .yassir-plus .logo-small {
+            font-size: 20px;
+            font-weight: 700;
+            color: white;
+        }
+
+        .yassir-plus .plus-text {
+            font-size: 24px;
+            font-weight: 700;
+            color: white;
+        }
+
+        /* Search Form */
+        .search-container {
+            background: white;
+            border-radius: 24px;
+            padding: 32px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .trip-type {
+            display: flex;
+            gap: 24px;
+            margin-bottom: 24px;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+
+        .radio-option input[type="radio"] {
+            width: 20px;
+            height: 20px;
+            accent-color: #fb2576;
+        }
+
+        .radio-option label {
+            font-size: 17px;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        .radio-option input[type="radio"]:checked + label {
+            color: #fb2576;
+            font-weight: 600;
+        }
+
+        .search-fields {
+            display: grid;
+            grid-template-columns: 2fr 2fr 1.5fr 1.5fr auto;
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .input-group {
+            border: 1px solid #edeaf1;
+            border-radius: 12px;
+            padding: 16px;
+            position: relative;
+        }
+
+        .input-group label {
+            font-size: 14px;
+            color: #524977;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .input-group input,
+        .input-group select {
+            width: 100%;
+            border: none;
+            outline: none;
+            font-size: 14px;
+            color: #1a0244;
+            font-weight: 500;
+            background: transparent;
+        }
+
+        .input-group input::placeholder {
+            color: #afaac2;
+        }
+
+        .search-btn {
+            background: #6316db;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            padding: 24px 32px;
+            font-size: 17px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .search-btn:hover {
+            background: #4f11b0;
+        }
+
+        /* Recently Searched Section */
+        .section {
+            max-width: 1310px;
+            margin: 80px auto;
+            padding: 0 120px;
+        }
+
+        .section-title {
+            font-size: 40px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 16px;
+            letter-spacing: -1.2px;
+        }
+
+        .section-subtitle {
+            font-size: 24px;
+            color: #524977;
+            text-align: center;
+            margin-bottom: 48px;
+            line-height: 1.3;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .flight-card {
+            background: #f1f1fe;
+            border-radius: 24px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .flight-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 188px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 24px;
+        }
+
+        .flight-route {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .flight-point {
+            flex: 1;
+        }
+
+        .airport-code {
+            font-size: 17px;
+            color: #1a0244;
+            font-weight: 500;
+        }
+
+        .city-name {
+            font-size: 20px;
+            color: #6316db;
+            font-weight: 600;
+            margin: 4px 0;
+        }
+
+        .flight-date {
+            font-size: 17px;
+            color: #524977;
+        }
+
+        .flight-duration {
+            flex: 1;
+            text-align: center;
+            padding: 0 16px;
+        }
+
+        .direct-label {
+            font-size: 12px;
+            color: #6316db;
+            margin-bottom: 8px;
+        }
+
+        .duration-time {
+            font-size: 12px;
+            color: #524977;
+            margin-top: 8px;
+        }
+
+        .flight-line {
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent 0%, #fb2576 50%, transparent 100%);
+            margin: 8px 0;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 16px;
+            border-top: 1px solid #edeaf1;
+        }
+
+        .passenger-info {
+            font-size: 17px;
+            color: #524977;
+        }
+
+        /* Destinations Section */
+        .dest-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 24px;
+            margin-bottom: 24px;
+        }
+
+        .dest-card {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            height: 340px;
+        }
+
+        .dest-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .dest-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(180deg, rgba(26,2,68,0.1) 0%, rgba(26,2,68,0.3) 68%, rgba(14,1,36,0.7) 100%);
+            padding: 24px;
+        }
+
+        .dest-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 8px;
+        }
+
+        .dest-subtitle {
+            font-size: 17px;
+            color: #edeaf1;
+        }
+
+        /* Airlines Section */
+        .airlines-grid {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            gap: 27px;
+            margin-bottom: 32px;
+        }
+
+        .airline-card {
+            background: #f1f1fe;
+            border-radius: 32px;
+            width: 140px;
+            height: 140px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s;
+        }
+
+        .airline-card:hover {
+            transform: scale(1.05);
+        }
+
+        .airline-card img {
+            max-width: 80px;
+            max-height: 80px;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a0244;
+            color: white;
+            padding: 60px 120px 40px;
+        }
+
+        .footer-content {
+            max-width: 1310px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 60px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+
+        .footer-column a {
+            display: block;
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            font-size: 18px;
+            margin-bottom: 16px;
+            transition: color 0.3s;
+        }
+
+        .footer-column a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 24px;
+            text-align: center;
+            font-size: 14px;
+            color: rgba(255,255,255,0.6);
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .navbar, .hero-section, .section, .footer {
+                padding-left: 40px;
+                padding-right: 40px;
+            }
+
+            .search-fields {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .cards-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .dest-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .airlines-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 32px;
+            }
+
+            .search-fields {
+                grid-template-columns: 1fr;
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .dest-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .icon {
+            width: 20px;
+            height: 20px;
+        }
+
+        .spinner {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #6316db;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .search-more-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: #f1f1fe;
+            border-radius: 24px;
+            padding: 48px;
+            text-align: center;
+        }
+
+        .search-more-icon {
+            width: 68px;
+            height: 68px;
+            margin-bottom: 24px;
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
@@ -86,7 +613,7 @@
         
         <div class="cards-grid">
             <div class="flight-card">
-                <img src="images/destinations/paris.jpg" alt="Paris" class="card-image">
+                <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=600&h=400&fit=crop" alt="Paris" class="card-image">
                 <div class="card-content">
                     <div class="flight-route">
                         <div class="flight-point">
@@ -112,7 +639,7 @@
             </div>
 
             <div class="flight-card">
-                <img src="images/destinations/dubai.jpg" alt="Dubai" class="card-image">
+                <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=600&h=400&fit=crop" alt="Dubai" class="card-image">
                 <div class="card-content">
                     <div class="flight-route">
                         <div class="flight-point">
@@ -150,7 +677,7 @@
         
         <div class="dest-grid">
             <div class="dest-card">
-                <img src="images/destinations/paris.jpg" alt="Paris">
+                <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=800&h=600&fit=crop" alt="Paris">
                 <div class="dest-overlay">
                     <div class="dest-title">Algeria - Paris</div>
                     <div class="dest-subtitle">15 Aug 2025 - 15 Aug 2025</div>
@@ -158,7 +685,7 @@
                 </div>
             </div>
             <div class="dest-card">
-                <img src="images/destinations/newyork.jpg" alt="New York">
+                <img src="https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=600&h=600&fit=crop" alt="New York">
                 <div class="dest-overlay">
                     <div class="dest-title">Algeria - New York</div>
                     <div class="dest-subtitle">15 Aug 2025 - 15 Aug 2025</div>
@@ -166,7 +693,7 @@
                 </div>
             </div>
             <div class="dest-card">
-                <img src="images/destinations/dubai.jpg" alt="Dubai">
+                <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=600&h=600&fit=crop" alt="Dubai">
                 <div class="dest-overlay">
                     <div class="dest-title">Algeria - Dubai</div>
                     <div class="dest-subtitle">15 Aug 2025 - 15 Aug 2025</div>
@@ -182,14 +709,14 @@
         
         <div class="dest-grid">
             <div class="dest-card" style="grid-column: span 2;">
-                <img src="images/destinations/dubai.jpg" alt="Dubai">
+                <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1200&h=600&fit=crop" alt="Dubai">
                 <div class="dest-overlay">
                     <div class="dest-title">Dubai</div>
                     <div class="dest-subtitle">Flight to Dubai</div>
                 </div>
             </div>
             <div class="dest-card">
-                <img src="images/destinations/paris.jpg" alt="Paris">
+                <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=600&h=600&fit=crop" alt="Paris">
                 <div class="dest-overlay">
                     <div class="dest-title">Paris</div>
                     <div class="dest-subtitle">Flight to Paris</div>
@@ -199,14 +726,14 @@
 
         <div class="dest-grid" style="margin-top: 24px;">
             <div class="dest-card" style="grid-column: span 2;">
-                <img src="images/destinations/newyork.jpg" alt="New York">
+                <img src="https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=1200&h=600&fit=crop" alt="New York">
                 <div class="dest-overlay">
                     <div class="dest-title">New York</div>
                     <div class="dest-subtitle">Flight to New York</div>
                 </div>
             </div>
             <div class="dest-card">
-                <img src="images/destinations/spain.jpg" alt="Spain">
+                <img src="https://images.unsplash.com/photo-1543783207-ec64e4d95325?w=600&h=600&fit=crop" alt="Spain">
                 <div class="dest-overlay">
                     <div class="dest-title">Spain</div>
                     <div class="dest-subtitle">Flight to Spain</div>
@@ -221,28 +748,28 @@
         
         <div class="airlines-grid">
             <div class="airline-card">
-                <img src="images/airlines/air-france.png" alt="Air France">
+                <div style="font-weight: 600; color: #6316db; font-size: 14px;">Air France</div>
             </div>
             <div class="airline-card">
-                <img src="images/airlines/emirates.png" alt="Emirates">
+                <div style="font-weight: 600; color: #6316db; font-size: 14px;">Emirates</div>
             </div>
             <div class="airline-card">
-                <img src="images/airlines/lufthansa.png" alt="Lufthansa">
+                <div style="font-weight: 600; color: #6316db; font-size: 14px;">Lufthansa</div>
             </div>
             <div class="airline-card">
-                <img src="images/airlines/turkish.png" alt="Turkish Airlines">
+                <div style="font-weight: 600; color: #6316db; font-size: 14px;">Turkish</div>
             </div>
             <div class="airline-card">
-                <img src="images/airlines/qatar.png" alt="Qatar Airways">
+                <div style="font-weight: 600; color: #6316db; font-size: 14px;">Qatar</div>
             </div>
             <div class="airline-card">
-                <img src="images/airlines/british.png" alt="British Airways">
+                <div style="font-weight: 600; color: #6316db; font-size: 14px;">British</div>
             </div>
             <div class="airline-card">
-                <img src="images/airlines/klm.png" alt="KLM">
+                <div style="font-weight: 600; color: #6316db; font-size: 14px;">KLM</div>
             </div>
             <div class="airline-card">
-                <img src="images/airlines/etihad.png" alt="Etihad">
+                <div style="font-weight: 600; color: #6316db; font-size: 14px;">Etihad</div>
             </div>
         </div>
     </div>
@@ -282,6 +809,17 @@
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
+    <script>
+        // Set default date to tomorrow
+        const tomorrow = new Date();
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        document.getElementById('departDate').valueAsDate = tomorrow;
+
+        // Flight Search Form
+        document.getElementById('flightSearchForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Flight search functionality requires API keys from https://developers.amadeus.com\n\nFor now, this is a demo. The search will be functional once you add your API credentials.');
+        });
+    </script>
 </body>
 </html>
