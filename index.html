@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yassir Travel - Millions of Cheap Flights</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <div class="header-gradient">
+        <nav class="navbar">
+            <div class="logo">YASSIR</div>
+            <div class="nav-center">
+                <div class="nav-item active">
+                    <svg class="icon" fill="white" viewBox="0 0 24 24"><path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></svg>
+                    Flights
+                </div>
+                <div class="nav-item">
+                    <svg class="icon" fill="white" viewBox="0 0 24 24"><path d="M12 3L2 12h3v8h14v-8h3L12 3zm0 2.69l6 5.4V18h-3v-5H9v5H6v-6.91l6-5.4z"/></svg>
+                    Stays
+                </div>
+            </div>
+            <div class="nav-right">
+                <button class="lang-btn">English</button>
+                <div class="avatar">AB</div>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <div class="hero-section">
+            <h1 class="hero-title">Millions of cheap flights. One simple search.</h1>
+            <div class="yassir-plus">
+                <span class="logo-small">YASSIR</span>
+                <span class="plus-text">plus</span>
+            </div>
+
+            <!-- Search Form -->
+            <div class="search-container">
+                <div class="trip-type">
+                    <div class="radio-option">
+                        <input type="radio" id="roundtrip" name="tripType" value="roundtrip" checked>
+                        <label for="roundtrip">Round trip</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="oneway" name="tripType" value="oneway">
+                        <label for="oneway">One way</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="multicity" name="tripType" value="multicity">
+                        <label for="multicity">Multi-city</label>
+                    </div>
+                </div>
+
+                <form id="flightSearchForm" class="search-fields">
+                    <div class="input-group">
+                        <label>Where from?</label>
+                        <input type="text" id="origin" placeholder="Algiers (ALG)" value="ALG">
+                    </div>
+                    <div class="input-group">
+                        <label>Where to?</label>
+                        <input type="text" id="destination" placeholder="Paris (CDG)" value="CDG">
+                    </div>
+                    <div class="input-group">
+                        <label>Dates</label>
+                        <input type="date" id="departDate" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Passenger & Class</label>
+                        <select id="passengers">
+                            <option value="1">1 Adult, Economy</option>
+                            <option value="2">2 Adults, Economy</option>
+                            <option value="3">3+ Adults, Economy</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="search-btn">Search flight</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recently Searched Section -->
+    <div class="section">
+        <h2 class="section-title">Recently search</h2>
+        <p class="section-subtitle">There is a limited number of seats available. Complete your booking to secure yours.</p>
+        
+        <div class="cards-grid">
+            <div class="flight-card">
+                <img src="images/destinations/paris.jpg" alt="Paris" class="card-image">
+                <div class="card-content">
+                    <div class="flight-route">
+                        <div class="flight-point">
+                            <div class="airport-code">ALG</div>
+                            <div class="city-name">Algiers</div>
+                            <div class="flight-date">16 May 2025</div>
+                        </div>
+                        <div class="flight-duration">
+                            <div class="direct-label">Direct</div>
+                            <div class="flight-line"></div>
+                            <div class="duration-time">8h 20 min</div>
+                        </div>
+                        <div class="flight-point" style="text-align: right;">
+                            <div class="airport-code">CDG</div>
+                            <div class="city-name">Paris</div>
+                            <div class="flight-date">20 May 2025</div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="passenger-info">Round trip, 1 Passenger, Economy</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flight-card">
+                <img src="images/destinations/dubai.jpg" alt="Dubai" class="card-image">
+                <div class="card-content">
+                    <div class="flight-route">
+                        <div class="flight-point">
+                            <div class="airport-code">ALG</div>
+                            <div class="city-name">Algiers</div>
+                            <div class="flight-date">16 May 2025</div>
+                        </div>
+                        <div class="flight-duration">
+                            <div class="direct-label">Direct</div>
+                            <div class="flight-line"></div>
+                            <div class="duration-time">8h 20 min</div>
+                        </div>
+                        <div class="flight-point" style="text-align: right;">
+                            <div class="airport-code">DXB</div>
+                            <div class="city-name">Dubai</div>
+                            <div class="flight-date">20 May 2025</div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="passenger-info">Round trip, 1 Passenger, Economy</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="search-more-card">
+                <svg class="search-more-icon" fill="#6316db" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="#6316db" stroke-width="2"/><path d="M12 8v8m-4-4h8"/></svg>
+                <div class="city-name">Search for more flights</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Find Cheap Flights Section -->
+    <div class="section">
+        <h2 class="section-title">Find Cheap Flights!</h2>
+        
+        <div class="dest-grid">
+            <div class="dest-card">
+                <img src="images/destinations/paris.jpg" alt="Paris">
+                <div class="dest-overlay">
+                    <div class="dest-title">Algeria - Paris</div>
+                    <div class="dest-subtitle">15 Aug 2025 - 15 Aug 2025</div>
+                    <div class="dest-subtitle">Economy from <strong>29 351,00 DZD</strong></div>
+                </div>
+            </div>
+            <div class="dest-card">
+                <img src="images/destinations/newyork.jpg" alt="New York">
+                <div class="dest-overlay">
+                    <div class="dest-title">Algeria - New York</div>
+                    <div class="dest-subtitle">15 Aug 2025 - 15 Aug 2025</div>
+                    <div class="dest-subtitle">Economy from <strong>29 351,00 DZD</strong></div>
+                </div>
+            </div>
+            <div class="dest-card">
+                <img src="images/destinations/dubai.jpg" alt="Dubai">
+                <div class="dest-overlay">
+                    <div class="dest-title">Algeria - Dubai</div>
+                    <div class="dest-subtitle">15 Aug 2025 - 15 Aug 2025</div>
+                    <div class="dest-subtitle">Economy from <strong>29 351,00 DZD</strong></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Destinations Section -->
+    <div class="section">
+        <h2 class="section-title">Destinations ready for you to explore</h2>
+        
+        <div class="dest-grid">
+            <div class="dest-card" style="grid-column: span 2;">
+                <img src="images/destinations/dubai.jpg" alt="Dubai">
+                <div class="dest-overlay">
+                    <div class="dest-title">Dubai</div>
+                    <div class="dest-subtitle">Flight to Dubai</div>
+                </div>
+            </div>
+            <div class="dest-card">
+                <img src="images/destinations/paris.jpg" alt="Paris">
+                <div class="dest-overlay">
+                    <div class="dest-title">Paris</div>
+                    <div class="dest-subtitle">Flight to Paris</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="dest-grid" style="margin-top: 24px;">
+            <div class="dest-card" style="grid-column: span 2;">
+                <img src="images/destinations/newyork.jpg" alt="New York">
+                <div class="dest-overlay">
+                    <div class="dest-title">New York</div>
+                    <div class="dest-subtitle">Flight to New York</div>
+                </div>
+            </div>
+            <div class="dest-card">
+                <img src="images/destinations/spain.jpg" alt="Spain">
+                <div class="dest-overlay">
+                    <div class="dest-title">Spain</div>
+                    <div class="dest-subtitle">Flight to Spain</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Airlines Section -->
+    <div class="section">
+        <h2 class="section-title">Access airlines all around the world</h2>
+        
+        <div class="airlines-grid">
+            <div class="airline-card">
+                <img src="images/airlines/air-france.png" alt="Air France">
+            </div>
+            <div class="airline-card">
+                <img src="images/airlines/emirates.png" alt="Emirates">
+            </div>
+            <div class="airline-card">
+                <img src="images/airlines/lufthansa.png" alt="Lufthansa">
+            </div>
+            <div class="airline-card">
+                <img src="images/airlines/turkish.png" alt="Turkish Airlines">
+            </div>
+            <div class="airline-card">
+                <img src="images/airlines/qatar.png" alt="Qatar Airways">
+            </div>
+            <div class="airline-card">
+                <img src="images/airlines/british.png" alt="British Airways">
+            </div>
+            <div class="airline-card">
+                <img src="images/airlines/klm.png" alt="KLM">
+            </div>
+            <div class="airline-card">
+                <img src="images/airlines/etihad.png" alt="Etihad">
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Our services</h3>
+                <a href="#">Yassir Ride</a>
+                <a href="#">Yassir Food</a>
+                <a href="#">Yassir Market</a>
+                <a href="#">Yassir Cash</a>
+            </div>
+            <div class="footer-column">
+                <h3>Our partners</h3>
+                <a href="#">Drivers</a>
+                <a href="#">Restaurants</a>
+                <a href="#">Stores</a>
+                <a href="#">Yassir Agent</a>
+            </div>
+            <div class="footer-column">
+                <h3>Company</h3>
+                <a href="#">About us</a>
+                <a href="#">Careers</a>
+                <a href="#">News</a>
+            </div>
+            <div class="footer-column">
+                <h3>Help</h3>
+                <a href="#">Help center</a>
+                <a href="#">Terms of use</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2025 Yassir. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
